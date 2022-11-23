@@ -8,9 +8,9 @@ void merge(int *arr, int start, int end, int mid)
 
     int *res = new int[end + 1];
 
-    while(indexL <= mid && indexR <= end)
+    while (indexL <= mid && indexR <= end)
     {
-        if(arr[indexL] < arr[indexR])
+        if (arr[indexL] < arr[indexR])
         {
             res[indexRes] = arr[indexL];
             indexL++;
@@ -22,28 +22,28 @@ void merge(int *arr, int start, int end, int mid)
         }
         indexRes++;
     }
-    while(indexL <= mid)
+    while (indexL <= mid)
     {
         res[indexRes] = arr[indexL];
         indexL++;
         indexRes++;
     }
-    while(indexR <= end)
+    while (indexR <= end)
     {
         res[indexRes] = arr[indexR];
         indexR++;
         indexRes++;
     }
-    for(int i = start; i <= end; i++)
+    for (int i = start; i <= end; i++)
         arr[i] = res[i - start];
     delete[] res;
 }
 
 void mergeSort(int *arr, int start, int end)
 {
-    if(start < end)
+    if (start < end)
     {
-        int mid = (start + end)/2;
+        int mid = (start + end) / 2;
         mergeSort(arr, start, mid);
         mergeSort(arr, mid + 1, end);
         merge(arr, start, end, mid);
