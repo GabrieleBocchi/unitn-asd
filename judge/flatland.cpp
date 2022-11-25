@@ -30,7 +30,7 @@ int main()
 
     int N;
     in >> N;
-    bool arr[N];
+    bool *arr = new bool[N];
 
     vector<int> result;
 
@@ -43,7 +43,6 @@ int main()
         else
             arr[i] = false;
     }
-    in.close();
 
     if (N >= 3)
     {
@@ -63,4 +62,10 @@ int main()
     out << result.size() << endl;
     for (int i = 0; i < result.size(); i++)
         out << result[i] << " ";
+
+    in.close();
+    out.close();
+    delete[] arr;
+
+    return 0;
 }

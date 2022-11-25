@@ -18,5 +18,8 @@ int main()
     ofstream out("output.txt");
     out << result;
 
+    in.close();
+    out.close();
+
     return 0;
 }

@@ -69,6 +69,8 @@ int main()
     ofstream out("output.txt");
     out << maxSubMatrix(mat, R, C) << endl;
 
+    in.close();
+    out.close();
     for (int i = 0; i < R; i++)
         delete[] mat[i];
 

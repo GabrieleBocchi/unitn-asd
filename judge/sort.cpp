@@ -57,7 +57,7 @@ int main()
     in >> N;
     int *arr = new int[N];
 
-    for (int i = 0; !in.eof(); i++)
+    for (int i = 0; i < N; i++)
         in >> arr[i];
 
     mergeSort(arr, 0, N - 1);
@@ -65,6 +65,9 @@ int main()
     ofstream out("output.txt");
     for (int i = 0; i < N; i++)
         out << arr[i] << " ";
+
+    in.close();
+    out.close();
     delete[] arr;
 
     return 0;

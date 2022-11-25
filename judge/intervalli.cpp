@@ -21,7 +21,7 @@ int main()
     in >> N;
     Interval *arr = new Interval[N];
 
-    for (int i = 0; !in.eof(); i++)
+    for (int i = 0; i < N; i++)
     {
         in >> arr[i].start;
         in >> arr[i].end;
@@ -53,6 +53,9 @@ int main()
         out << 0;
     else
         out << min << " " << max;
+
+    in.close();
+    out.close();
     delete[] arr;
 
     return 0;
