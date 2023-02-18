@@ -1,35 +1,28 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-void merge(int *arr, int start, int end, int mid)
-{
+void merge(int *arr, int start, int end, int mid) {
     int indexL = start, indexR = mid + 1, indexRes = 0;
 
     int *res = new int[end + 1];
 
-    while (indexL <= mid && indexR <= end)
-    {
-        if (arr[indexL] < arr[indexR])
-        {
+    while (indexL <= mid && indexR <= end) {
+        if (arr[indexL] < arr[indexR]) {
             res[indexRes] = arr[indexL];
             indexL++;
-        }
-        else
-        {
+        } else {
             res[indexRes] = arr[indexR];
             indexR++;
         }
         indexRes++;
     }
-    while (indexL <= mid)
-    {
+    while (indexL <= mid) {
         res[indexRes] = arr[indexL];
         indexL++;
         indexRes++;
     }
-    while (indexR <= end)
-    {
+    while (indexR <= end) {
         res[indexRes] = arr[indexR];
         indexR++;
         indexRes++;
@@ -39,10 +32,8 @@ void merge(int *arr, int start, int end, int mid)
     delete[] res;
 }
 
-void mergeSort(int *arr, int start, int end)
-{
-    if (start < end)
-    {
+void mergeSort(int *arr, int start, int end) {
+    if (start < end) {
         int mid = (start + end) / 2;
         mergeSort(arr, start, mid);
         mergeSort(arr, mid + 1, end);
@@ -50,8 +41,7 @@ void mergeSort(int *arr, int start, int end)
     }
 }
 
-int main()
-{
+int main() {
     int N;
     ifstream in("input.txt");
     in >> N;

@@ -1,15 +1,13 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int element, maxHere = 0, result = 0;
     ifstream in("input.txt");
     in >> element;
 
-    while (!in.eof())
-    {
+    while (!in.eof()) {
         in >> element;
         maxHere = max(maxHere + element, 0);
         result = max(result, maxHere);

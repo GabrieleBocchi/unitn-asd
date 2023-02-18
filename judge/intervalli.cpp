@@ -1,45 +1,35 @@
-#include <iostream>
-#include <fstream>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 using namespace std;
 
-struct Interval
-{
+struct Interval {
     int start;
     int end;
 };
 
-bool compare(Interval a, Interval b)
-{
-    return a.start < b.start;
-}
+bool compare(Interval a, Interval b) { return a.start < b.start; }
 
-int main()
-{
+int main() {
     int N, min = 0, max = 0, maxEnd = 0;
     ifstream in("input.txt");
     in >> N;
     Interval *arr = new Interval[N];
 
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         in >> arr[i].start;
         in >> arr[i].end;
     }
 
     sort(arr, arr + N, compare);
 
-    for (int i = 1; i < N; i++)
-    {
-        if (arr[i].start - arr[i - 1].end > max - min)
-        {
-            if (maxEnd <= arr[i - 1].end)
-            {
+    for (int i = 1; i < N; i++) {
+        if (arr[i].start - arr[i - 1].end > max - min) {
+            if (maxEnd <= arr[i - 1].end) {
                 min = arr[i - 1].end;
                 max = arr[i].start;
-            }
-            else if (maxEnd > arr[i - 1].end && maxEnd < arr[i].start && arr[i].start - maxEnd > max - min)
-            {
+            } else if (maxEnd > arr[i - 1].end && maxEnd < arr[i].start &&
+                       arr[i].start - maxEnd > max - min) {
                 min = maxEnd;
                 max = arr[i].start;
             }

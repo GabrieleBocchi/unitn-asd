@@ -1,10 +1,9 @@
+#include <fstream>
 #include <iostream>
 #include <vector>
-#include <fstream>
 using namespace std;
 
-bool checkLeft(bool *arr, int start, int end)
-{
+bool checkLeft(bool *arr, int start, int end) {
     if (arr[end] == 1)
         return true;
     for (int i = end - 2; i > start; i = i - 2)
@@ -13,8 +12,7 @@ bool checkLeft(bool *arr, int start, int end)
     return false;
 }
 
-bool checkRight(bool *arr, int start, int end)
-{
+bool checkRight(bool *arr, int start, int end) {
     if (arr[start] == 0)
         return true;
     for (int i = start + 2; i < end; i = i + 2)
@@ -23,8 +21,7 @@ bool checkRight(bool *arr, int start, int end)
     return false;
 }
 
-int main()
-{
+int main() {
     ifstream in("input.txt");
     ofstream out("output.txt");
 
@@ -35,8 +32,7 @@ int main()
     vector<int> result;
 
     char c;
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         in >> c;
         if (c == 's')
             arr[i] = true;
@@ -44,8 +40,7 @@ int main()
             arr[i] = false;
     }
 
-    if (N >= 3)
-    {
+    if (N >= 3) {
         if (checkRight(arr, 1, N - 1))
             result.push_back(0);
 
@@ -55,8 +50,7 @@ int main()
 
         if (checkLeft(arr, 0, N - 2))
             result.push_back(N - 1);
-    }
-    else
+    } else
         result.push_back(0);
 
     out << result.size() << endl;

@@ -1,7 +1,6 @@
 #include <fstream>
 using namespace std;
-int main()
-{
+int main() {
     int N, M;
     ifstream in("input.txt");
     in >> N >> M;
